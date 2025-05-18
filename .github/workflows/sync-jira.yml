@@ -1,0 +1,30 @@
+name: CI and Sync Jira Issues to Port
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build placeholder
+        run: echo "CI step placeholder"
+
+  sync-jira-to-port:
+    name: Sync Jira Issues to Port
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Run Ocean
+        uses: port-labs/ocean-action@v1
+        with:
+          clientId: ${{ secrets.PORT_CLIENT_ID }}
+          clientSecret: ${{ secrets.PORT_CLIENT_SECRET }}
+          configPath: .port/ocean-jira.yaml
