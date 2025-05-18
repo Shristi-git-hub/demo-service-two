@@ -27,4 +27,6 @@ jobs:
         with:
           clientId: ${{ secrets.PORT_CLIENT_ID }}
           clientSecret: ${{ secrets.PORT_CLIENT_SECRET }}
+          operation: UPSERT
+          blueprint: repository
           configPath: .port/ocean-jira.yaml
