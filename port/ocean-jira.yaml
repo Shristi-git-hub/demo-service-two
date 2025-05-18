@@ -1,0 +1,14 @@
+version: 1
+source: jira
+credentials:
+  email: shristee87@gmail.com
+  apiToken: ${{ secrets.JIRA_API_TOKEN }}
+  site: https://shristie87.atlassian.net
+projectKey: PORT
+mappings:
+  - target: jira_issue
+    selector: issues[]
+    properties:
+      key: .key
+      summary: .fields.summary
+      components: "[.fields.components[].name]"
