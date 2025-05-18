@@ -23,7 +23,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Run Ocean
-        uses: port-labs/ocean-gh-action@main
+        uses: port-labs/port-github-action@v1
         with:
           clientId: ${{ secrets.PORT_CLIENT_ID }}
           clientSecret: ${{ secrets.PORT_CLIENT_SECRET }}
